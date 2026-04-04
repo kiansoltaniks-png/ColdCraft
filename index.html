@@ -326,7 +326,7 @@
 
 <script>
   // ⬇ Replace this with your Render backend URL once it's live
-  const BACKEND_URL = 'https://YOUR-RENDER-URL.onrender.com';
+  const API_KEY = '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';
 
   const PLANS = {
     free:  { limit: 3,        tones: 1, subjects: 1, followup: false, bulk: false },
@@ -424,16 +424,17 @@
     document.getElementById('subj-box').style.display = 'none';
 
     try {
-      const res = await fetch(`${BACKEND_URL}/generate`, {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ company, industry, pain, offer, sender, tone })
+        headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514', max_tokens: 600,
+          messages: [{ role: 'user', content: `Expert cold email copywriter. Write a personalized cold email.\nProspect: ${company} | Industry: ${industry||'not specified'} | Pain: ${pain||'improving efficiency'}\nSender: ${sender||'the sender'} | Offer: ${offer} | Tone: ${tone}\nOutput format — first line: "SUBJECT: [subject]", then "---", then email body (max 120 words, no fluff, 1 CTA asking for 15-min call, sign off with sender name). Output ONLY this, nothing else.` }]
+        })
       });
-
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'API error');
-
-      const text = data.text || '';
+      if (!res.ok) throw new Error(data.error?.message || 'API error');
+      const text = data.content?.[0]?.text || '';
       const parts = text.split('---');
       let subj = '', body = text;
       if (parts.length >= 2) { subj = parts[0].replace('SUBJECT:', '').trim(); body = parts.slice(1).join('---').trim(); }
