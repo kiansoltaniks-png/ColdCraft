@@ -142,22 +142,160 @@
   .modal-cta { width: 100%; padding: 14px; border-radius: 12px; border: none; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; cursor: pointer; }
   .modal-dismiss { background: transparent; color: var(--muted2); border: none; font-size: 12px; padding: 12px; cursor: pointer; font-family: 'DM Mono', monospace; display: block; margin: 8px auto 0; }
   .modal-dismiss:hover { color: var(--text); }
-  footer { text-align: center; padding: 40px 0 32px; color: var(--muted); font-size: 11px; letter-spacing: 0.05em; }
+  /* LANDING PAGE */
+  .hero-section { min-height: calc(100vh - 65px); display: flex; align-items: center; justify-content: center; padding: 60px 24px; position: relative; }
+  .hero-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,255,71,0.06) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .hero-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(232,255,71,0.25); background: rgba(232,255,71,0.06); padding: 7px 16px; border-radius: 999px; margin-bottom: 32px; }
+  .hero-h1 { font-family: 'Syne', sans-serif; font-size: clamp(42px, 7vw, 76px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; color: var(--text); }
+  .hero-accent { color: var(--accent); }
+  .hero-sub { font-size: 17px; color: var(--muted2); line-height: 1.7; max-width: 520px; margin: 0 auto 44px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+  .hero-btn-primary { display: flex; align-items: center; gap: 8px; background: var(--accent); color: #0A0A0B; border: none; border-radius: 12px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; padding: 16px 32px; cursor: pointer; transition: all 0.15s; letter-spacing: 0.02em; }
+  .hero-btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,255,71,0.2); }
+  .hero-btn-primary:active { transform: translateY(0); }
+  .hero-btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border2); border-radius: 12px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; padding: 16px 32px; cursor: pointer; transition: all 0.15s; }
+  .hero-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats { display: flex; align-items: center; justify-content: center; gap: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 32px; display: inline-flex; }
+  .hero-stat { text-align: center; padding: 0 28px; }
+  .hstat-num { display: block; font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .hstat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .hstat-div { width: 1px; height: 40px; background: var(--border); }
+  .section-wrap { max-width: 1060px; margin: 0 auto; padding: 80px 24px 0; }
+  .section-label { font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; margin-bottom: 14px; }
+  .section-h2 { font-family: 'Syne', sans-serif; font-size: clamp(26px, 4vw, 40px); font-weight: 800; letter-spacing: -0.02em; color: var(--text); margin-bottom: 48px; max-width: 500px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 700px) { .steps-grid, .features-grid { grid-template-columns: 1fr; } .hero-stats { flex-direction: column; gap: 16px; } .hstat-div { width: 40px; height: 1px; } }
+  .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: border-color 0.2s; }
+  .step-card:hover { border-color: var(--border2); }
+  .step-icon { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 800; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 20px; }
+  .step-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+  .step-desc { font-size: 13px; color: var(--muted2); line-height: 1.7; font-weight: 300; }
+  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .feat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: border-color 0.2s; }
+  .feat-card:hover { border-color: rgba(232,255,71,0.2); }
+  .feat-icon-wrap { width: 40px; height: 40px; border-radius: 10px; background: rgba(232,255,71,0.08); border: 1px solid rgba(232,255,71,0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .feat-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .feat-desc { font-size: 13px; color: var(--muted2); line-height: 1.7; font-weight: 300; }
+
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo" onclick="showPage('app')">Cold<span>Craft</span></div>
+  <div class="nav-logo" onclick="showPage('home')">Cold<span>Craft</span></div>
   <div class="nav-right">
     <span class="nav-plan free" id="nav-badge">FREE</span>
-    <button class="nav-btn outline" onclick="showPage('pricing')">Upgrade</button>
-    <button class="nav-btn" onclick="showPage('app')">App</button>
+    <button class="nav-btn outline" onclick="showPage('pricing')">Pricing</button>
+    <button class="nav-btn" onclick="showPage('app')">Build Email</button>
   </div>
 </nav>
 
+<!-- HOME -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <div class="hero-section">
+    <div class="hero-inner">
+      <div class="hero-tag">AI-Powered Cold Outreach</div>
+      <h1 class="hero-h1">Cold emails that<br>actually get <span class="hero-accent">replies.</span></h1>
+      <p class="hero-sub">Paste in a company name and your offer. ColdCraft writes a sharp, personalized cold email in under 10 seconds — ready to send.</p>
+      <div class="hero-btns">
+        <button class="hero-btn-primary" onclick="showPage('app')">
+          Start for free
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </button>
+        <button class="hero-btn-secondary" onclick="showPage('pricing')">View pricing</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hstat-num">~8s</span>
+          <span class="hstat-label">Generation time</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hero-stat">
+          <span class="hstat-num">3</span>
+          <span class="hstat-label">Free emails / day</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hero-stat">
+          <span class="hstat-num">$0</span>
+          <span class="hstat-label">To get started</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section-wrap">
+    <div class="section-label">How it works</div>
+    <h2 class="section-h2">Three inputs. One perfect email.</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon">01</div>
+        <h3 class="step-title">Describe the prospect</h3>
+        <p class="step-desc">Enter their company name, industry, and the pain point you're solving. The more specific, the better the output.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">02</div>
+        <h3 class="step-title">Define your offer</h3>
+        <p class="step-desc">Tell us what you're selling, your name, and the tone you want. Professional, bold, consultative — your call.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">03</div>
+        <h3 class="step-title">Send it</h3>
+        <p class="step-desc">ColdCraft generates a subject line and email body in seconds. Copy it, paste it, send it. That's it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="section-wrap" style="padding-bottom:80px;">
+    <div class="section-label">Why ColdCraft</div>
+    <h2 class="section-h2">Built for people who move fast.</h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        </div>
+        <h3 class="feat-title">Lightning fast</h3>
+        <p class="feat-desc">No back and forth. No prompting. Fill in three fields and your email is ready in under 10 seconds.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+        </div>
+        <h3 class="feat-title">Hyper-personalized</h3>
+        <p class="feat-desc">Every email is written specifically for the prospect you describe — not a generic template with a name swapped in.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="feat-title">No fluff</h3>
+        <p class="feat-desc">Short, direct, built to get a reply. No "I hope this finds you well." Just a clean pitch and a clear ask.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-wrap">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--accent)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+        </div>
+        <h3 class="feat-title">Scale your outreach</h3>
+        <p class="feat-desc">Pro and Ultra plans let you generate 25–unlimited emails per day across any niche, any industry, any offer.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <button class="hero-btn-primary" onclick="showPage('app')" style="display:inline-flex;">
+        Build my first email — it's free
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:32px 0;color:var(--muted);font-size:11px;letter-spacing:0.05em;border-top:1px solid var(--border);">© 2026 ColdCraft. All rights reserved.</footer>
+</div>
+
 <!-- APP -->
-<div class="page active" id="page-app">
+<div class="page" id="page-app">
 <div class="container">
   <header>
     <div class="badge">⚡ AI-Powered</div>
